@@ -1,0 +1,29 @@
+<!-- team_leader_details.html -->
+<h2>Team Leader Details for {{ rescue_agency.organization_name }}</h2>
+
+<form method="post" action="{% url 'save_team_leader_details' rescue_agency.id %}">
+  {% csrf_token %}
+  
+  {{ rescue_agency_form.as_p }}
+  
+  <label for="id_common_password_team_leader">Common Password for Team Leaders:</label>
+  <input type="password" name="common_password_team_leader" id="id_common_password_team_leader" required>
+
+
+  {% for i in team_leaders_count %}
+    <label for="leader_name">Leader Name:</label>
+    <input type="text" name="leader_name" id="leader_name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="phone_number">Phone Number:</label>
+    <input type="tel" name="phone_number" id="phone_number" required>
+  
+    <!-- Add other fields as needed for each team leader -->
+  
+    <hr> <!-- Add a visual separator between team leader details -->
+  {% endfor %}
+
+  <button type="submit">Submit</button>
+</form>

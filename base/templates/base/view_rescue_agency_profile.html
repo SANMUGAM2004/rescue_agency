@@ -1,0 +1,66 @@
+<!-- profile/view_rescue_agency_profile.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Rescue Agency Profile</h2>
+
+    <p><strong>Agency Name:</strong> {{ rescue_agency.organization_name }}</p>
+    <p><strong>Latitude:</strong> {{ rescue_agency.latitude }}</p>
+    <p><strong>Longitude:</strong> {{ rescue_agency.longitude }}</p>
+    <p><strong>Admin Name:</strong> {{ admin_name }}</p>
+
+    <h3>Team Leaders:</h3>
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f2f2f2;">
+                <th style="padding: 10px;">TeamLeader Name</th>
+                <th style="padding: 10px; text-align: center;">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team_leader, email in team_leader_emails %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{ team_leader.leader_name }}</td>
+                    <td style="padding: 10px; text-align: center;">{{ email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Team Members:</h3>
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f2f2f2;">
+                <th style="padding: 10px;">TeamMember Name</th>
+                <th style="padding: 10px; text-align: center;">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for team_member, email in team_member_emails %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{ team_member.member_name }}</td>
+                    <td style="padding: 10px; text-align: center;">{{ email }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h3>Resources:</h3>
+    <table style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr style="border-bottom: 1px solid #ddd; background-color: #f2f2f2;">
+                <th style="padding: 10px;">Name</th>
+                <th style="padding: 10px;">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resource in resources %}
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="padding: 10px;">{{ resource.name }}</td>
+                    <td style="padding: 10px;text-align: center;">{{ resource.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Add other details you want to display about the rescue agency -->
+{% endblock %}

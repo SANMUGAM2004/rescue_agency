@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: left;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .upload-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .upload-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <div class="container">
+        <h2>Resource Details</h2>
+
+        {% if resources %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resource in resources %}
+                        <tr>
+                            <td>{{ resource.name }}</td>
+                            <td>{{ resource.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if updated_resources %}
+                <a href="{% url 'delete_and_upload_resources' %}" class="upload-btn">Upload Updated Resources</a>
+            {% endif %}
+        {% else %}
+            <p>No Resources Available</p>
+
+            {% if show_upload_button %}
+                <a href="{% url 'upload_resources' %}" class="upload-btn">Upload Details</a>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

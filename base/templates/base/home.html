@@ -1,0 +1,40 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQConnect</title>
+    <!-- Add your CSS stylesheets or link to a CSS framework like Bootstrap here -->
+    <!-- Example with Bootstrap: -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        /* Add your custom styles here */
+        body {
+            background-color: #f8f9fa; /* Optional: Change the background color */
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to ResQConnect</h1>
+        <p>Connect with rescue agencies for effective communication and details.</p>
+        <div>
+            <a href="{% url 'user_login' %}">Login</a> |
+            <a href="{% url 'agency_admin_signup' %}">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- Optional: Add your JavaScript scripts or link to a JS framework here -->
+    <!-- Example with Bootstrap: -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>

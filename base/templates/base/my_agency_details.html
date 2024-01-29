@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>My Agency Details</h2>
+
+    <p><strong>Agency Name:</strong> {{ rescue_agency.organization_name }}</p>
+    <p><strong>Latitude:</strong> {{ rescue_agency.latitude }}</p>
+    <p><strong>Longitude:</strong> {{ rescue_agency.longitude }}</p>
+
+    <h3>Admin Details:</h3>
+    {% if admin_name %}
+        <p><strong>Admin Name:</strong> {{ admin_name }}</p>
+    {% else %}
+        <p>No admin found for this agency.</p>
+    {% endif %}
+
+    {% comment %} <h3>Resources:</h3>
+    {% if resources %}
+        <ul>
+            {% for resource in resources %}
+                <li>{{ resource.name }} - Quantity: {{ resource.quantity }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No resources available for this agency.</p>
+    {% endif %} {% endcomment %}
+
+    <h3>Team Leaders:</h3>
+    {% if team_leaders %}
+        <ul>
+            {% for team_leader in team_leaders %}
+                <li>{{ team_leader.leader_name }} - Email: {{ team_leader.email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No team leaders in this agency.</p>
+    {% endif %}
+
+    <h3>Team Members:</h3>
+    {% if team_members %}
+        <ul>
+            {% for team_member in team_members %}
+                <li>{{ team_member.member_name }} - Email: {{ team_member.email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No team members in this agency.</p>
+    {% endif %}
+    
+    <!-- Add other details you want to display about the rescue agency -->
+{% endblock %}
